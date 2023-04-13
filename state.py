@@ -21,7 +21,14 @@ class State:
          for x,char in enumerate(line):
             if char != " ":
                if self.occupied[y][x]: self.lost = True
-               self.occupied[y][x] = True
+               self.active.append((x,y))
+
+   # determine how good of a position we are in, higher = better
+   def eval(self):
+      # for now we will use a simple method that counts number of empty lines from the top
+      for y,line in enumerate(self.occupied):
+         if any(line): return y
+      return consts.HEIGHT
 
    # place the active piece and activate a random piece, possibly causing a loss
    def place(self):
