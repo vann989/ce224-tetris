@@ -10,5 +10,3 @@ print("New position: ", state.active)
 print("Old position: ", state.active)
 state.move(consts.DOWN)
 print("New position: ", state.active)
-
-print("PASS")
